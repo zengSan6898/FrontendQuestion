@@ -36,5 +36,18 @@ function reverseLink(head) {
   return curNode;
 }
 const r = createSingleLink([1,2,3,4,5,6]);
-console.log(JSON.stringify(r));
-console.log('反转链表~~~~',JSON.stringify(reverseLink(r)));
+// console.log(JSON.stringify(r));
+// console.log('反转链表~~~~', JSON.stringify(reverseLink1(r)));
+
+function reverseLink1 (head) {
+  let curNode = head;
+  let preNode = null;
+  while (curNode) {
+    const next = curNode.next;
+    curNode.next = preNode;
+    preNode = curNode;
+    curNode = next;
+  }
+  return preNode;
+}
+console.log('反转链表~~~~', JSON.stringify(reverseLink1(r)));
